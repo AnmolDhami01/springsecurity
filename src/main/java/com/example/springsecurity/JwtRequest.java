@@ -1,34 +1,40 @@
 package com.example.springsecurity;
 
 public class JwtRequest {
-	String Username;
-	String Password;
+
+	String username;
+	String password;
+
 	public String getUsername() {
-		return Username;
+		return username;
 	}
+
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
+
 	public String getPassword() {
-		return Password;
+		return password;
 	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "JwtRequest [username=" + username + ", password=" + password + "]";
+	}
+
+	public JwtRequest(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
 	public JwtRequest() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	@Override
-	public String toString() {
-		return "JwtRequest [Username=" + Username + ", Password=" + Password + "]";
-	}
-	public JwtRequest(String username, String password) {
-		super();
-		Username = username;
-		Password = password;
-	}
-	
-	
 
 }
