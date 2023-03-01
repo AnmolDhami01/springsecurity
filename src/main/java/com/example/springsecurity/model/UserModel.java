@@ -22,7 +22,7 @@ public class UserModel {
 	@Column(name = "uid")
 	private Long id;
 	private String username;
-	@JsonIgnore
+//	@JsonIgnore
 	private String password;
 	private String email;
 	private String role;

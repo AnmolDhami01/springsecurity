@@ -14,30 +14,29 @@ import com.example.springsecurity.repo.UserRepo;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-	
+
 	@Autowired
 	UserRepo userrepo;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+		UserModel findByUsername = this.userrepo.findByUsername(username);
 		
-		
-//		UserModel findByUsername = this.userrepo.findByUsername(username);
-//		
-//		if(findByUsername==null) {
+		System.out.println("IIIIIIIIIIIIIIIIIII"+findByUsername);
+
+		if (findByUsername == null) {
+			throw new UsernameNotFoundException("User Not Found");
+		} else {
+
+			return new CustomUserDetails(findByUsername);
+		}
+
+//		if (username.equals("Durgesh")) {
+//			return new User("Durgesh", "password", new ArrayList<>());
+//		} else {
 //			throw new UsernameNotFoundException("User Not Found");
 //		}
-//		else {
-//			
-//			return new CustomUserDetails(findByUsername);
-//		}
-		
-		
-		if (username.equals("Durgesh")) {
-			return new User("Durgesh", "password", new ArrayList<>());
-		} else {
-			throw new UsernameNotFoundException("User Not Found");
-		}
 
 	}
 

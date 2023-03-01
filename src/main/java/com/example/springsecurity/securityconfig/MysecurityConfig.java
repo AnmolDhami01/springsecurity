@@ -44,9 +44,10 @@ public class MysecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.csrf().disable().cors().disable().authorizeRequests().antMatchers("/token").permitAll().anyRequest()
-				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint);
+		http.csrf().disable().cors().disable().authorizeRequests().antMatchers("/token").permitAll()
+				.antMatchers("/auth/v1/**").permitAll().anyRequest().authenticated().and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
+				.authenticationEntryPoint(jwtAuthenticationEntryPoint);
 
 		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 	}
