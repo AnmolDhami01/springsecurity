@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import com.example.springsecurity.model.UserModel;
 
+
+
 @Component
 public class CustomUserDetails implements  UserDetails{
 	

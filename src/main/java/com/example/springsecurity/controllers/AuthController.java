@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springsecurity.model.UserModel;
+import com.example.springsecurity.requestwrapper.AuthRequestWrapper;
 import com.example.springsecurity.responsewrapper.ResponseWrapper;
 import com.example.springsecurity.responsewrapper.StatusDescription;
 import com.example.springsecurity.service.AuthService;
@@ -27,6 +28,15 @@ public class AuthController {
 		ResponseWrapper responseWrapper1 = new ResponseWrapper();
 		StatusDescription statusDescription1 = new StatusDescription();
 		responseWrapper1 = authService.createUser(str);
+
+		return new ResponseEntity<>(responseWrapper1, responseWrapper1.getHttpStatus());
+	}
+
+	@PostMapping("login")
+	public ResponseEntity<ResponseWrapper> loginUser(@RequestBody AuthRequestWrapper str) {
+		ResponseWrapper responseWrapper1 = new ResponseWrapper();
+		StatusDescription statusDescription1 = new StatusDescription();
+		responseWrapper1 = authService.loginUser(str);
 
 		return new ResponseEntity<>(responseWrapper1, responseWrapper1.getHttpStatus());
 	}

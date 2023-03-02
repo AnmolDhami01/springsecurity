@@ -11,4 +11,5 @@ import com.example.springsecurity.model.UserModel;
 @Repository
 public interface UserRepo  extends JpaRepository<UserModel,Long>{
 	UserModel findByUsername(String username);
+	UserModel findByEmail(String email);
 }

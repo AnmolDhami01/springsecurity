@@ -6,6 +6,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.example.springsecurity.model.UserModel;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +39,11 @@ public class JwtUtil {
     }
 
     public String generateToken(UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
+        return createToken(claims, userDetails.getUsername());
+    }
+    
+    public String generateTokenAuth(UserModel userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userDetails.getUsername());
     }

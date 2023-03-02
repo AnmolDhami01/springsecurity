@@ -19,19 +19,27 @@ public class ResponseWrapper implements Serializable {
 	UserModel user;
 	@JsonIgnore
 	HttpStatus httpStatus;
+	String token;
 	public StatusDescription getStatusDescription() {
 		return statusDescription;
 	}
 	public void setStatusDescription(StatusDescription statusDescription) {
 		this.statusDescription = statusDescription;
 	}
+
+	public UserModel getUser() {
+		return user;
+	}
 	@Override
 	public String toString() {
 		return "ResponseWrapper [statusDescription=" + statusDescription + ", user=" + user + ", httpStatus="
-				+ httpStatus + "]";
+				+ httpStatus + ", token=" + token + "]";
 	}
-	public UserModel getUser() {
-		return user;
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 	public void setUser(UserModel user) {
 		this.user = user;
