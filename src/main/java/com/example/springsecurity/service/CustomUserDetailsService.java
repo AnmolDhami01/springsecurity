@@ -25,7 +25,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 		UserModel findByUsername = this.userrepo.findByUsername(username);
 		
-		System.out.println("IIIIIIIIIIIIIIIIIII"+findByUsername.getUserTokenDetails());
+		System.out.println("JJJJJJJJJJ"+findByUsername);
 
 		if (findByUsername == null) {
 			throw new UsernameNotFoundException("User Not Found");

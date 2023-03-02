@@ -7,5 +7,6 @@ import com.example.springsecurity.model.JwtModel;
 
 public interface JwtModelRepo extends JpaRepository<JwtModel, Long> {
 	JwtModel findByUserId(Long uid);
+	JwtModel findByUsername(String username);
 
 }
